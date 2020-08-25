@@ -6,8 +6,8 @@ import {
     LOAD_COMPANY_LIST_REQUEST, LOAD_COMPANY_LIST_SUCCESS, LOAD_COMPANY_LIST_FAILURE
 } from '../actions/company'
 
-function loadCompanyListApi() {
-    return axios.get(`https://ops.wematch.com/da24/partners/?page=1&size=10`)
+function loadCompanyListApi(page) {
+    return axios.get(`https://ops.wematch.com/da24/partners/?page=${page}&size=10`)
 }
 
 function* loadCompanyList(action) {
