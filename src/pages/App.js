@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import Company from '../components/Company'
 import { useDispatch, useSelector } from 'react-redux'
 import { LOAD_COMPANY_LIST_REQUEST } from '../actions/company'
+import { Row, Col } from 'antd'
 
 function App() {
     const page = useRef(1)
@@ -31,12 +32,14 @@ function App() {
         return () => {
             window.removeEventListener('scroll', onScroll)
         }
-    }, [data, loadCompanyListlodading])
+    }, [data, loadCompanyListlodading]) 
 
     return (
-        <>
-            {data.map((company) => <Company key={company.id} company={company} />)}
-        </>
+        <Row justify="center">
+            <Col lg={12} xs={24}>
+                {data.map((company) => <Company key={company.id} company={company} loading={loadCompanyListlodading} />)}
+            </Col>
+        </Row>
     )
 }
 
