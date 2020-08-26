@@ -8,7 +8,12 @@ export const CardWrapper = styled(Card)`
 
 export const CompanyLevel = styled.span`
     color: #1672f7;
-    font-weight: bold
+    font-weight: bold;
+    margin-left: 5px;
+`
+export const CompanyName = styled.span`
+    font-weight: bold;
+    margin-left: 5px;
 `
 export const CompanyTitle = styled.p`
     color: #000

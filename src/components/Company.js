@@ -1,11 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Card, Avatar } from 'antd';
+import { Checkbox, Card, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { CardWrapper, CompanyLevel, CompanyTitle } from './styles/style'
+import { CardWrapper, CompanyLevel, CompanyName, CompanyTitle } from './styles/style'
 
 const { Meta } = Card
-function Company({ company }) {
+function Company({ company, onChangeCheckbox }) {
     return (
         <>
             <CardWrapper>
@@ -15,12 +15,13 @@ function Company({ company }) {
                     }
                     title={
                         <>
+                        <Checkbox onChange={onChangeCheckbox} value={company} checked={company.checked} />
                         <CompanyLevel>
                             {company.level}등급
                         </CompanyLevel>
-                        <span>
-                            &nbsp;{company.company}
-                        </span>
+                        <CompanyName>
+                            {company.company}
+                        </CompanyName>
                         </>
                     }
                     description={
@@ -38,7 +39,8 @@ function Company({ company }) {
 }
 
 Company.prototypes = {
-    company: PropTypes.object.isRequired
+    company: PropTypes.object.isRequired,
+    onChangeCheckbox: PropTypes.func.isRequired
 }
 
 export default Company
